@@ -1,0 +1,36 @@
+[package]
+name = "soaprs-auth-password"
+version = "0.6.0"
+edition = "2024"
+rust-version = "1.85"
+description = "Production Argon2id password authentication for soaprs"
+license = "MIT"
+repository = "https://github.com/soaprs/soap-auth-password"
+readme = "README.md"
+keywords = ["authentication", "password", "argon2", "soaprs"]
+categories = ["authentication", "cryptography"]
+
+[features]
+default = ["tokio"]
+tokio = ["dep:tokio"]
+
+[dependencies]
+argon2 = { version = "0.5.3", features = ["std"] }
+rand_core = { version = "0.6.4", features = ["getrandom"] }
+soaprs-auth = "0.6.0"
+soaprs-core = "0.6.0"
+tokio = { version = "1", features = ["rt"], optional = true }
+unicode-normalization = "0.1.24"
+zeroize = { version = "1.8", features = ["derive"] }
+
+[dev-dependencies]
+soaprs-contract-tests = "0.6.0"
+tokio = { version = "1", features = ["macros", "rt-multi-thread"] }
+
+[lints.rust]
+missing_docs = "warn"
+unsafe_code = "forbid"
+
+[lints.clippy]
+expect_used = "deny"
+unwrap_used = "deny"
