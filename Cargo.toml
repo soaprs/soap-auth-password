@@ -9,6 +9,7 @@ repository = "https://github.com/soaprs/soap-auth-password"
 readme = "README.md"
 keywords = ["authentication", "password", "argon2", "soaprs"]
 categories = ["authentication", "cryptography"]
+exclude = ["examples/**"]
 
 [features]
 default = ["tokio"]
